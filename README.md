@@ -339,3 +339,14 @@ var string = 'Regex is great!';
 var result = string.match(regex);
 alert(result); // returns what it finds: array of 'e,e,e'
 ```
+
+# Helpful Code
+
+## Validate Email
+
+```js
+function isEmail(email) {
+  var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z]{2,4})+$/;
+  return regex.test(email);
+}
+```
