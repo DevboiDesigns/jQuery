@@ -406,6 +406,8 @@ $(function () {
 </script>
 ```
 
+## Resizable
+
 - with call back logic
 
 ```js
