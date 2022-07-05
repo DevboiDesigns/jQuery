@@ -257,3 +257,85 @@ $('.circle').click(function () {
   );
 });
 ```
+
+# AJAX
+
+## get file
+
+- basic
+
+```js
+// get content of file
+$.get('info.txt', function (data) {
+  alert(data);
+});
+```
+
+- advanced with error handling
+
+```js
+$.ajax('info.txt')
+  .done(function (data) {
+    alert(data);
+  })
+  .fail(function () {
+    alert('sorry check your internet');
+  });
+```
+
+- example
+
+```js
+$.ajax('info.txt')
+  .done(function (data) {
+    $('#text').html(data);
+  })
+  .fail(function () {
+    alert('sorry check your internet');
+  });
+```
+
+# REGEX - Regular Expressions
+
+- check if is date
+- check if has letter
+- check if email
+- check if password is complicated enough
+- validate
+
+## Syntax
+
+- `var regex = /is/` `/is/` syntax to check if available/ exists
+- `var string = 'Regex is great!'`
+
+**basic setup**
+
+```js
+var regex = /is/;
+var string = 'Regex is great!';
+
+var result = string.match(regex);
+alert(result); // returns what it finds: 'is'
+```
+
+**case insensitive**
+
+```js
+var regex = /Great/i;
+var string = 'Regex is great!';
+
+var result = string.match(regex);
+alert(result); // returns what it finds: 'great'
+```
+
+**global**
+
+_returns how many times present_
+
+```js
+var regex = /e/g;
+var string = 'Regex is great!';
+
+var result = string.match(regex);
+alert(result); // returns what it finds: array of 'e,e,e'
+```

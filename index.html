@@ -17,14 +17,15 @@
     <title>jQuery & AJAX</title>
   </head>
   <body>
-    <div class="circle"></div>
+    <p id="text"></p>
 
     <!-- jQuery -->
     <script type="text/javascript">
-      // get content of file
-      $.get('info.txt', function (data) {
-        alert(data);
-      });
+      var regex = /e/g;
+      var string = 'Regex is great!';
+
+      var result = string.match(regex);
+      alert(result);
     </script>
   </body>
 </html>
