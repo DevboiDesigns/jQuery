@@ -17,15 +17,55 @@
     <title>jQuery & AJAX</title>
   </head>
   <body>
-    <p id="text"></p>
+    <div id="container">
+      <!-- Email -->
+      <div class="form-container">
+        <label for="email">Email</label>
+        <input
+          type="text"
+          name="email"
+          id="email"
+          placeholder="yourname@mail.com"
+        />
+      </div>
 
+      <!-- Phone -->
+      <div class="form-container">
+        <label for="phone">Phone</label>
+        <input type="number" name="phone" id="phone" placeholder="555-5555" />
+      </div>
+
+      <!-- Password -->
+      <div class="form-container">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          placeholder="123456"
+        />
+      </div>
+
+      <!-- Password Confirm -->
+      <div class="form-container">
+        <label for="passwordConfirm">Confirm Password</label>
+        <input
+          type="password"
+          name="passwordConfirm"
+          id="passwordConfirm"
+          placeholder="123456"
+        />
+      </div>
+
+      <div class="form-container">
+        <button id="submitButton">Sign up</button>
+      </div>
+    </div>
     <!-- jQuery -->
     <script type="text/javascript">
-      var regex = /e/g;
-      var string = 'Regex is great!';
-
-      var result = string.match(regex);
-      alert(result);
+      $('#submitButton').click(function () {
+        alert('Clicked');
+      });
     </script>
   </body>
 </html>

@@ -1,18 +1,36 @@
-.circle {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  background-color: purple;
-  margin: 10px;
+body {
+  font-family: Helvetica, sans-serif;
+  font-size: 130%;
 }
 
-.square {
-  width: 150px;
-  height: 150px;
-  background-color: purple;
-  margin: 10px;
+input {
+  padding: 5px;
+  font-size: 25px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  width: 300px;
 }
 
-.hidden {
-  display: none;
+label {
+  position: relative;
+  top: 12px;
+  float: left;
+  width: 200px;
+  margin-right: 20px;
+}
+
+#container {
+  width: 550px;
+  margin: 0 auto;
+}
+
+.form-container {
+  margin-bottom: 20px;
+}
+
+#submitButton {
+  width: 130px;
+  height: 40px;
+  font-size: 20px;
+  margin-left: 220px;
 }
