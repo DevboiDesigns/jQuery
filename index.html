@@ -17,16 +17,18 @@
     <title>Document</title>
   </head>
   <body>
-    <div id="circle"></div>
+    <p id="text">
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi quis
+      debitis unde facere, provident, repellendus esse eveniet error numquam
+      laudantium est ex in adipisci perferendis eius aliquam similique nobis ea.
+    </p>
 
-    <p></p>
+    <button id="toggle">Toggle</button>
 
-    <!-- Embed JavaScript -->
-    <script src="./index.js"></script>
-    <!-- jQuery (until i find out how to import in js file) -->
+    <!-- jQuery -->
     <script>
-      $("#circle").click(function () {
-        $("p").html("Hello");
+      $("#toggle").click(function () {
+        $("#text").fadeToggle();
       });
     </script>
   </body>

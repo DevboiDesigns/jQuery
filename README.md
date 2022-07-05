@@ -8,7 +8,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 ```
 
-- [Download](https://jquery.com/download/) (can avoid relying on internet)
+- [Download](https://jquery.com/download/) (can avoid relying on internet or changes to api)
 
 ## Check if installed
 
@@ -59,6 +59,14 @@ $(".square");
 $("div");
 ```
 
+- this (element selected)
+
+```js
+$("div").click(function () {
+  $(this).css("display", "none");
+});
+```
+
 # Interacting with elements
 
 - clicking
@@ -69,12 +77,12 @@ $("#circle").click(function () {
 });
 ```
 
-* hovering
+- hovering
 
 ```js
 $("#circle").hover(function () {
-    alert($("p").html());
-  });
+  alert($("p").html());
+});
 ```
 
 - change HTML
@@ -97,13 +105,110 @@ $("#circle").click(function () {
 });
 ```
 
-* change tags in elements
+- change tags in elements
 
 **Key-Value pair: `src` can be any attribute**
 
 ```js
-$("iframe").attr(
-    "src",
-    "https://devboidesigns.github.io/Namid-Wolf_Site/"
-  );
+$("iframe").attr("src", "https://devboidesigns.github.io/Namid-Wolf_Site/");
+```
+
+- changing CSS
+
+```js
+$("#circle").click(function () {
+  $("#circle").css("width", "400px");
+});
+```
+
+**access attributes**
+
+```js
+$("#circle").click(function () {
+  alert($("body").css("width"));
+});
+```
+
+- fade [Docs](https://api.jquery.com/fadeout/)
+
+```js
+$("div").click(function () {
+  $(this).fadeOut();
+});
+```
+
+**fade with method**
+
+```js
+$("div").click(function () {
+  $(this).fadeOut("slow", function () {
+    $("p").html("This is " + $(this).attr("name") + " left the page");
+  });
+});
+```
+
+- hide
+
+```js
+$("div").click(function () {
+  $(this).hide();
+});
+```
+
+# Logic
+
+## Basic
+
+```html
+<div name="circle" id="circle"></div>
+```
+
+```js
+$("div").click(function () {
+  if ($(this).attr("id") === "circle") {
+    alert("You clicked on a " + $(this).attr("name"));
+  } else {
+    alert("You clicked a square");
+  }
+});
+```
+
+## Fade in text
+
+```css
+.hidden {
+  display: none;
+}
+```
+
+```html
+<body>
+  <p id="hidden-text" class="hidden">
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi quis debitis
+    unde facere, provident, repellendus esse eveniet error numquam laudantium
+    est ex in adipisci perferendis eius aliquam similique nobis ea.
+  </p>
+
+  <button id="fadeIn" type="button">Fade in</button>
+  <button id="fadeOut" type="button">Fade out</button>
+
+  <!-- jQuery -->
+  <script>
+    $("#fadeIn").click(function () {
+      $("#hidden-text").fadeIn();
+    });
+
+    $("#fadeOut").click(function () {
+      $("#hidden-text").fadeOut();
+    });
+  </script>
+</body>
+```
+
+- Toggle fade
+
+```js
+$("#toggle").click(function () {
+  $("#text").fadeToggle();
+});
 ```

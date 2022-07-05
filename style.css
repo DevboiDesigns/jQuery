@@ -5,3 +5,14 @@
   background-color: purple;
   margin: 10px;
 }
+
+.square {
+  width: 150px;
+  height: 150px;
+  background-color: purple;
+  margin: 10px;
+}
+
+.hidden {
+  display: none;
+}
