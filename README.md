@@ -1,4 +1,12 @@
-# jQuery
+# jQuery & AJAX
+
+- [jQuery Docs](https://api.jquery.com)
+- [AJAX Docs](https://api.jquery.com/category/ajax/)
+
+## AJAX
+
+- access content and interact without refreshing view
+- cant use with local files
 
 # Setup
 
@@ -29,10 +37,10 @@
     Hello World
 
     <script type="text/javascript">
-      if (typeof jQuery == "undefined") {
-        alert("jQuery is not installed");
+      if (typeof jQuery == 'undefined') {
+        alert('jQuery is not installed');
       } else {
-        alert("jQuery is installed");
+        alert('jQuery is installed');
       }
     </script>
   </body>
@@ -44,26 +52,26 @@
 - by ID
 
 ```js
-$("#circle");
+$('#circle');
 ```
 
 - by Class
 
 ```js
-$(".square");
+$('.square');
 ```
 
 - all types
 
 ```js
-$("div");
+$('div');
 ```
 
 - this (element selected)
 
 ```js
-$("div").click(function () {
-  $(this).css("display", "none");
+$('div').click(function () {
+  $(this).css('display', 'none');
 });
 ```
 
@@ -72,16 +80,16 @@ $("div").click(function () {
 - clicking
 
 ```js
-$("#circle").click(function () {
-  alert("Was clicked");
+$('#circle').click(function () {
+  alert('Was clicked');
 });
 ```
 
 - hovering
 
 ```js
-$("#circle").hover(function () {
-  alert($("p").html());
+$('#circle').hover(function () {
+  alert($('p').html());
 });
 ```
 
@@ -92,16 +100,16 @@ $("#circle").hover(function () {
 ```
 
 ```js
-$("#circle").click(function () {
-  $("p").html("This is some new text");
+$('#circle').click(function () {
+  $('p').html('This is some new text');
 });
 ```
 
 - get HTML and present
 
 ```js
-$("#circle").click(function () {
-  alert($("p").html());
+$('#circle').click(function () {
+  alert($('p').html());
 });
 ```
 
@@ -110,29 +118,29 @@ $("#circle").click(function () {
 **Key-Value pair: `src` can be any attribute**
 
 ```js
-$("iframe").attr("src", "https://devboidesigns.github.io/Namid-Wolf_Site/");
+$('iframe').attr('src', 'https://devboidesigns.github.io/Namid-Wolf_Site/');
 ```
 
 - changing CSS
 
 ```js
-$("#circle").click(function () {
-  $("#circle").css("width", "400px");
+$('#circle').click(function () {
+  $('#circle').css('width', '400px');
 });
 ```
 
 **access attributes**
 
 ```js
-$("#circle").click(function () {
-  alert($("body").css("width"));
+$('#circle').click(function () {
+  alert($('body').css('width'));
 });
 ```
 
 - fade [Docs](https://api.jquery.com/fadeout/)
 
 ```js
-$("div").click(function () {
+$('div').click(function () {
   $(this).fadeOut();
 });
 ```
@@ -140,9 +148,9 @@ $("div").click(function () {
 **fade with method**
 
 ```js
-$("div").click(function () {
-  $(this).fadeOut("slow", function () {
-    $("p").html("This is " + $(this).attr("name") + " left the page");
+$('div').click(function () {
+  $(this).fadeOut('slow', function () {
+    $('p').html('This is ' + $(this).attr('name') + ' left the page');
   });
 });
 ```
@@ -150,7 +158,7 @@ $("div").click(function () {
 - hide
 
 ```js
-$("div").click(function () {
+$('div').click(function () {
   $(this).hide();
 });
 ```
@@ -164,11 +172,11 @@ $("div").click(function () {
 ```
 
 ```js
-$("div").click(function () {
-  if ($(this).attr("id") === "circle") {
-    alert("You clicked on a " + $(this).attr("name"));
+$('div').click(function () {
+  if ($(this).attr('id') === 'circle') {
+    alert('You clicked on a ' + $(this).attr('name'));
   } else {
-    alert("You clicked a square");
+    alert('You clicked a square');
   }
 });
 ```
@@ -194,12 +202,12 @@ $("div").click(function () {
 
   <!-- jQuery -->
   <script>
-    $("#fadeIn").click(function () {
-      $("#hidden-text").fadeIn();
+    $('#fadeIn').click(function () {
+      $('#hidden-text').fadeIn();
     });
 
-    $("#fadeOut").click(function () {
-      $("#hidden-text").fadeOut();
+    $('#fadeOut').click(function () {
+      $('#hidden-text').fadeOut();
     });
   </script>
 </body>
@@ -208,7 +216,44 @@ $("div").click(function () {
 - Toggle fade
 
 ```js
-$("#toggle").click(function () {
-  $("#text").fadeToggle();
+$('#toggle').click(function () {
+  $('#text').fadeToggle();
+});
+```
+
+## Animate
+
+- 1 argu: css properties to animate
+- 2 argu: duration in milliseconds
+- naming convention is js (margin-left becomes marginLeft)
+
+```js
+$('.circle').click(function () {
+  $('.circle').animate(
+    {
+      width: '400px',
+      height: '400px',
+      marginLeft: '1000px',
+    },
+    2000
+  );
+});
+```
+
+- with call back function
+
+```js
+$('.circle').click(function () {
+  $('.circle').animate(
+    {
+      width: '400px',
+      height: '400px',
+      marginLeft: '1000px',
+    },
+    1000,
+    function () {
+      $('.circle').css('background-color', 'red');
+    }
+  );
 });
 ```

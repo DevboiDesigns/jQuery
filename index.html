@@ -17,18 +17,22 @@
     <title>Document</title>
   </head>
   <body>
-    <p id="text">
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi quis
-      debitis unde facere, provident, repellendus esse eveniet error numquam
-      laudantium est ex in adipisci perferendis eius aliquam similique nobis ea.
-    </p>
-
-    <button id="toggle">Toggle</button>
+    <div class="circle"></div>
 
     <!-- jQuery -->
     <script>
-      $("#toggle").click(function () {
-        $("#text").fadeToggle();
+      $('.circle').click(function () {
+        $('.circle').animate(
+          {
+            width: '400px',
+            height: '400px',
+            marginLeft: '1000px',
+          },
+          1000,
+          function () {
+            $('.circle').css('background-color', 'red');
+          }
+        );
       });
     </script>
   </body>
