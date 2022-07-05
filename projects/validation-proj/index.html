@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Embed jQuery -->
+    <script
+      type="text/javascript"
+      src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    ></script>
+
+    <!-- Embed CSS -->
+    <link rel="stylesheet" href="./style.css" />
+
+    <title>jQuery & AJAX</title>
+  </head>
+  <body>
+    <div id="container">
+      <div id="errorMessage"></div>
+      <div id="successMessage">You did it!</div>
+
+      <!-- Email -->
+      <div class="form-container">
+        <label for="email">Email</label>
+        <input
+          type="text"
+          name="email"
+          id="email"
+          placeholder="yourname@mail.com"
+        />
+      </div>
+
+      <!-- Phone -->
+      <div class="form-container">
+        <label for="phone">Phone</label>
+        <input type="text" name="phone" id="phone" placeholder="555-5555" />
+      </div>
+
+      <!-- Password -->
+      <div class="form-container">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          placeholder="123456"
+        />
+      </div>
+
+      <!-- Password Confirm -->
+      <div class="form-container">
+        <label for="passwordConfirm">Confirm Password</label>
+        <input
+          type="password"
+          name="passwordConfirm"
+          id="passwordConfirm"
+          placeholder="123456"
+        />
+      </div>
+
+      <div class="form-container">
+        <button id="submitButton">Sign up</button>
+      </div>
+    </div>
+    <!-- jQuery -->
+    <script type="text/javascript" src="./script.js"></script>
+  </body>
+</html>

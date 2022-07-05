@@ -340,8 +340,6 @@ var result = string.match(regex);
 alert(result); // returns what it finds: array of 'e,e,e'
 ```
 
-# Helpful Code
-
 ## Validate Email
 
 ```js
@@ -349,4 +347,87 @@ function isEmail(email) {
   var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z]{2,4})+$/;
   return regex.test(email);
 }
+```
+
+# jQuery UI
+
+- [jQueryUI Docs](https://jqueryui.com)
+
+* [Download](https://jqueryui.com)
+
+_add folder to project and point index.html at below folders_
+
+_make sure location of folder in `src` & `href` are your local files_
+
+```html
+<!-- Embed Jquery UI -->
+<link rel="stylesheet" href="./jquery-ui/jquery-ui.css" />
+<!-- jQuery UI script -->
+<script src="./jquery-ui/jquery-ui.js"></script>
+```
+
+## Draggable
+
+**similar setup for them all**
+
+```html
+<body>
+  <div id="draggable">
+    <p>Drag me around</p>
+  </div>
+</body>
+<script>
+  $(function () {
+    $('#draggable').draggable();
+  });
+</script>
+```
+
+- dragable attributes
+
+```js
+$(function () {
+  $('#draggable').draggable({ axis: 'y' });
+});
+```
+
+- containment
+
+```html
+<body>
+  <div class="container">
+    <span id="text">Drag me around</span>
+  </div>
+</body>
+<script>
+  $(function () {
+    $('#text').draggable({ containment: 'parent' });
+  });
+</script>
+```
+
+- with call back logic
+
+```js
+ <body>
+    <div class="container">
+      <span id="text">Drag me around</span>
+    </div>
+  </body>
+  <script>
+    $(function () {
+      $('#text').draggable({ containment: 'parent' });
+    });
+    $(function () {
+      $('.container').resizable({
+        grid: 50,
+        resize: function (event, ui) {
+          const width = $('.container').width();
+          if (width > 300) {
+            alert(`The width is ${width}`);
+          }
+        },
+      });
+    });
+  </script>
 ```

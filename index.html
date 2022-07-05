@@ -4,116 +4,46 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <!-- Embed jQuery -->
     <script
       type="text/javascript"
       src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"
     ></script>
+    <!-- Embed Jquery UI -->
+    <link rel="stylesheet" href="./jquery-ui/jquery-ui.css" />
+    <!-- jQuery UI script -->
+    <script src="./jquery-ui/jquery-ui.js"></script>
 
-    <!-- Embed CSS -->
-    <link rel="stylesheet" href="./style.css" />
+    <style>
+      .container {
+        width: 200px;
+        height: 150px;
+        border: 2px solid #ccc;
+        padding: 10px;
+      }
+    </style>
 
-    <title>jQuery & AJAX</title>
+    <title>jQuery UI</title>
   </head>
   <body>
-    <div id="container">
-      <div id="errorMessage"></div>
-      <div id="successMessage">You did it!</div>
-
-      <!-- Email -->
-      <div class="form-container">
-        <label for="email">Email</label>
-        <input
-          type="text"
-          name="email"
-          id="email"
-          placeholder="yourname@mail.com"
-        />
-      </div>
-
-      <!-- Phone -->
-      <div class="form-container">
-        <label for="phone">Phone</label>
-        <input type="text" name="phone" id="phone" placeholder="555-5555" />
-      </div>
-
-      <!-- Password -->
-      <div class="form-container">
-        <label for="password">Password</label>
-        <input
-          type="password"
-          name="password"
-          id="password"
-          placeholder="123456"
-        />
-      </div>
-
-      <!-- Password Confirm -->
-      <div class="form-container">
-        <label for="passwordConfirm">Confirm Password</label>
-        <input
-          type="password"
-          name="passwordConfirm"
-          id="passwordConfirm"
-          placeholder="123456"
-        />
-      </div>
-
-      <div class="form-container">
-        <button id="submitButton">Sign up</button>
-      </div>
+    <div class="container">
+      <span id="text">Drag me around</span>
     </div>
-    <!-- jQuery -->
-    <script type="text/javascript">
-      function isEmail(email) {
-        var regex =
-          /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z]{2,4})+$/;
-        return regex.test(email);
-      }
-
-      $('#submitButton').click(function () {
-        let errorMessage = [];
-        let fieldMissing = '';
-
-        if ($('#email').val() === '') {
-          fieldMissing += '<br>Please put in an email';
-        }
-
-        if ($('#phone').val() === '') {
-          fieldMissing += '<br>Please put in an phone';
-        }
-
-        if ($('#password').val() === '') {
-          fieldMissing += '<br>Please put in an password';
-        }
-
-        if ($('#passwordConfirm').val() === '') {
-          fieldMissing += '<br>Please confirm your password';
-        }
-
-        if (fieldMissing !== '') {
-          errorMessage.push('The follow fields are missing: ' + fieldMissing);
-        }
-        if (isEmail($('#email').val()) === false) {
-          errorMessage.push('<p>That is not a valid email</p>');
-        }
-
-        if ($.isNumeric($('#phone').val()) === false) {
-          errorMessage.push('<p>That is not a valid phone</p>');
-        }
-
-        if ($('#password').val() !== $('#passwordConfirm').val()) {
-          errorMessage.push('<p>Your passwords do not match</p>');
-        }
-
-        if (errorMessage !== '') {
-          $('#errorMessage').html(errorMessage.concat());
-        } else {
-          $('#successMessage').show();
-          $('#errorMessage').hide();
-        }
-      });
-    </script>
   </body>
+  <script>
+    $(function () {
+      $('#text').draggable({ containment: 'parent' });
+    });
+    $(function () {
+      $('.container').resizable({
+        grid: 50,
+        resize: function (event, ui) {
+          const width = $('.container').width();
+          if (width > 300) {
+            alert(`The width is ${width}`);
+          }
+        },
+      });
+    });
+  </script>
 </html>

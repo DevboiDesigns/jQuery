@@ -43,6 +43,6 @@ label {
 #successMessage {
   color: green;
   font-size: 90%;
-  display: hidden;
+  display: none;
   margin-bottom: 40px;
 }
