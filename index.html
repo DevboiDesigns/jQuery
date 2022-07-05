@@ -20,19 +20,10 @@
     <div class="circle"></div>
 
     <!-- jQuery -->
-    <script>
-      $('.circle').click(function () {
-        $('.circle').animate(
-          {
-            width: '400px',
-            height: '400px',
-            marginLeft: '1000px',
-          },
-          1000,
-          function () {
-            $('.circle').css('background-color', 'red');
-          }
-        );
+    <script type="text/javascript">
+      // get content of file
+      $.get('info.txt', function (data) {
+        alert(data);
       });
     </script>
   </body>
