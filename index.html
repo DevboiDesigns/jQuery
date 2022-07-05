@@ -20,30 +20,40 @@
         height: 150px;
         border: 2px solid #ccc;
         padding: 10px;
+        margin: 50px;
+      }
+
+      .box-one {
+        width: 400px;
+        height: 400px;
+        border: 2px solid #ccc;
+        padding: 10px;
+        margin: 50px;
+      }
+
+      .box-two {
+        /* background-color: purple; */
+        width: 40px;
+        height: 40px;
+        border: 2px solid #ccc;
+        padding: 10px;
+        margin: 50px;
       }
     </style>
 
     <title>jQuery UI</title>
   </head>
   <body>
-    <div class="container">
-      <span id="text">Drag me around</span>
-    </div>
+    <div class="box-one"></div>
+
+    <div class="box-two"></div>
   </body>
   <script>
-    $(function () {
-      $('#text').draggable({ containment: 'parent' });
-    });
-    $(function () {
-      $('.container').resizable({
-        grid: 50,
-        resize: function (event, ui) {
-          const width = $('.container').width();
-          if (width > 300) {
-            alert(`The width is ${width}`);
-          }
-        },
-      });
+    $('.box-two').draggable();
+    $('.box-one').droppable({
+      drop: function (event, ui) {
+        console.log(event);
+      },
     });
   </script>
 </html>

@@ -433,3 +433,21 @@ $(function () {
     });
   </script>
 ```
+
+## Droppable
+
+```js
+<body>
+    <div class="box-one"></div>
+
+    <div class="box-two"></div>
+  </body>
+  <script>
+    $('.box-two').draggable();
+    $('.box-one').droppable({
+      drop: function (event, ui) {
+        alert('Hello');
+      },
+    });
+  </script>
+```
