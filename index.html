@@ -5,12 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- jQuery Embed -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- Embed jQuery -->
+    <script
+      type="text/javascript"
+      src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    ></script>
+
+    <!-- Embed CSS -->
+    <link rel="stylesheet" href="./style.css" />
 
     <title>Document</title>
   </head>
   <body>
-    Hello World
+    <div id="circle"></div>
+
+    <p></p>
+
+    <!-- Embed JavaScript -->
+    <script src="./index.js"></script>
+    <!-- jQuery (until i find out how to import in js file) -->
+    <script>
+      $("#circle").click(function () {
+        $("p").html("Hello");
+      });
+    </script>
   </body>
 </html>
