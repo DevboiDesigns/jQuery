@@ -34,3 +34,15 @@ label {
   font-size: 20px;
   margin-left: 220px;
 }
+
+#errorMessage {
+  color: red;
+  font-size: 90%;
+}
+
+#successMessage {
+  color: green;
+  font-size: 90%;
+  display: hidden;
+  margin-bottom: 40px;
+}

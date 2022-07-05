@@ -18,6 +18,9 @@
   </head>
   <body>
     <div id="container">
+      <div id="errorMessage"></div>
+      <div id="successMessage">You did it!</div>
+
       <!-- Email -->
       <div class="form-container">
         <label for="email">Email</label>
@@ -63,29 +66,6 @@
     </div>
     <!-- jQuery -->
     <script type="text/javascript">
-      let errorMessage = [];
-      let fieldMissing = '';
-
-      if ($('#email').val() === '') {
-        fieldMissing += '<br>Please put in an email';
-      }
-
-      if ($('#phone').val() === '') {
-        fieldMissing += '<br>Please put in an phone';
-      }
-
-      if ($('#password').val() === '') {
-        fieldMissing += '<br>Please put in an password';
-      }
-
-      if ($('#passwordConfirm').val() === '') {
-        fieldMissing += '<br>Please confirm your password';
-      }
-
-      if (fieldMissing !== '') {
-        errorMessage.push('The follow fields are missing: ' + fieldMissing);
-      }
-
       function isEmail(email) {
         var regex =
           /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z]{2,4})+$/;
@@ -93,6 +73,28 @@
       }
 
       $('#submitButton').click(function () {
+        let errorMessage = [];
+        let fieldMissing = '';
+
+        if ($('#email').val() === '') {
+          fieldMissing += '<br>Please put in an email';
+        }
+
+        if ($('#phone').val() === '') {
+          fieldMissing += '<br>Please put in an phone';
+        }
+
+        if ($('#password').val() === '') {
+          fieldMissing += '<br>Please put in an password';
+        }
+
+        if ($('#passwordConfirm').val() === '') {
+          fieldMissing += '<br>Please confirm your password';
+        }
+
+        if (fieldMissing !== '') {
+          errorMessage.push('The follow fields are missing: ' + fieldMissing);
+        }
         if (isEmail($('#email').val()) === false) {
           errorMessage.push('<p>That is not a valid email</p>');
         }
@@ -105,7 +107,12 @@
           errorMessage.push('<p>Your passwords do not match</p>');
         }
 
-        alert(errorMessage.concat());
+        if (errorMessage !== '') {
+          $('#errorMessage').html(errorMessage.concat());
+        } else {
+          $('#successMessage').show();
+          $('#errorMessage').hide();
+        }
       });
     </script>
   </body>
